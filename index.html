@@ -637,18 +637,23 @@
             border-left: 3px solid var(--bundle-color, var(--accent));
             padding-left: calc(var(--space-lg) - 3px)
         }
+
         tr.bundle-row td {
             border-bottom: none
         }
+
         tr.bundle-row-last td {
             border-bottom: 1px solid var(--border-light)
         }
+
         tr.bundle-row-first td {
             border-top: 2px solid var(--bundle-color, var(--accent))
         }
+
         tr.bundle-row-middle td {
             background: color-mix(in srgb, var(--bundle-color, var(--accent)) 4%, var(--surface-hover))
         }
+
         /* ===== Bundle Total Cell (first item in group) ===== */
         td.bundle-total-cell {
             text-align: right;
@@ -658,9 +663,11 @@
             cursor: pointer;
             font-size: var(--text-base)
         }
+
         td.bundle-total-cell:hover {
             filter: brightness(.9)
         }
+
         /* ===== Bundle Badge Cell (non-first items) ===== */
         td.bundle-badge-cell {
             text-align: center;
@@ -668,27 +675,33 @@
             color: var(--text-muted);
             font-size: var(--text-xs)
         }
+
         /* ===== Bundle Button in Footer ===== */
         .btn.bundle-manage-btn {
             background: var(--accent-subtle);
             border-color: var(--border-focus);
             color: var(--accent-subtle-text)
         }
+
         .btn.bundle-manage-btn:hover {
             filter: brightness(.95)
         }
+
         /* ===== Bundle Modal ===== */
         .bundle-modal {
             max-width: 480px
         }
+
         .bundle-modal-section {
             border-top: 1px solid var(--border-light);
             padding-top: var(--space-lg)
         }
+
         .bundle-modal-section:first-of-type {
             border-top: none;
             padding-top: 0
         }
+
         .bundle-modal-section h4 {
             font-size: var(--text-sm);
             font-weight: 700;
@@ -697,6 +710,7 @@
             text-transform: uppercase;
             letter-spacing: .5px
         }
+
         .bundle-group-item {
             display: flex;
             align-items: center;
@@ -708,9 +722,11 @@
             font-size: var(--text-sm);
             transition: background .15s
         }
+
         .bundle-group-item:hover {
             background: var(--surface-hover)
         }
+
         .bundle-group-item .unbundle-btn {
             cursor: pointer;
             color: var(--danger);
@@ -723,9 +739,11 @@
             transition: filter .15s;
             font-family: var(--font-sans)
         }
+
         .bundle-group-item .unbundle-btn:hover {
             filter: brightness(.9)
         }
+
         .bundle-check-list {
             max-height: 200px;
             overflow-y: auto;
@@ -733,6 +751,7 @@
             border-radius: var(--radius-sm);
             padding: var(--space-sm)
         }
+
         .bundle-check-item {
             display: flex;
             align-items: center;
@@ -740,6 +759,7 @@
             padding: 4px 0;
             font-size: var(--text-sm)
         }
+
         .bundle-check-item input[type="checkbox"] {
             accent-color: var(--accent);
             width: 15px;
@@ -747,25 +767,31 @@
             cursor: pointer;
             flex-shrink: 0
         }
+
         .bundle-check-item label {
             cursor: pointer;
             color: var(--text-primary);
             flex: 1
         }
+
         .bundle-check-item .bch-cat {
             font-weight: 600
         }
+
         .bundle-check-item .bch-mod {
             color: var(--text-muted);
             font-size: var(--text-xs)
         }
+
         .bundle-check-item.disabled {
             opacity: .5;
             pointer-events: none
         }
+
         .bundle-check-item.disabled label {
             cursor: not-allowed
         }
+
         .bundle-empty-text {
             font-size: var(--text-sm);
             color: var(--text-muted);
@@ -1421,6 +1447,7 @@
             .bundle-modal {
                 max-width: 90%
             }
+
             .bundle-check-list {
                 max-height: 140px
             }
@@ -1432,7 +1459,8 @@
     <div class="container">
         <div class="header">
             <div class="header-left"><span class="header-icon">🖥️</span>
-                <input id="titleInput" class="title-input" type="text" value="PC 配置单" maxlength="32" spellcheck="false" autocomplete="off">
+                <input id="titleInput" class="title-input" type="text" value="PC 配置单" maxlength="32" spellcheck="false"
+                    autocomplete="off">
             </div>
             <button class="theme-toggle" id="themeToggle" title="切换深浅色模式">🌙</button>
         </div>
@@ -1527,8 +1555,10 @@
                 <h4>新建捆绑组</h4>
                 <div class="bundle-check-list" id="bundleCheckList"></div>
                 <div style="margin-top:var(--space-sm);display:flex;gap:var(--space-sm);align-items:center">
-                    <span style="font-size:var(--text-xs);color:var(--text-muted)" id="bundleSelectedCount">已选 0 项，至少选择 2 项</span>
-                    <button class="btn btn-add" id="confirmBundleBtn" disabled style="margin-left:auto;height:32px;font-size:var(--text-sm);padding:0 var(--space-lg)">确认捆绑</button>
+                    <span style="font-size:var(--text-xs);color:var(--text-muted)" id="bundleSelectedCount">已选 0 项，至少选择
+                        2 项</span>
+                    <button class="btn btn-add" id="confirmBundleBtn" disabled
+                        style="margin-left:auto;height:32px;font-size:var(--text-sm);padding:0 var(--space-lg)">确认捆绑</button>
                 </div>
             </div>
             <span class="modal-hint">捆绑后配件会排列在一起，组合显示总价</span>
@@ -1869,22 +1899,24 @@
                     editVal = data[idx].unitPrice.toFixed(2);
                 }
                 var inp = document.createElement('input'); inp.type = 'text'; inp.className = 'tooltip-edit-input'; inp.value = editVal; up.replaceWith(inp); inp.focus(); inp.select();
-                var done = false, commit = function () { if (done) return; done = true; var raw = inp.value.trim().replace(/[¥￥,，\s]/g, ''), np = parseFloat(raw); if (!isNaN(np) && np >= 0) {
-                    if (isBundle) {
-                        var bCtx2 = getBundleCtx(idx);
-                        if (bCtx2) {
-                            var totalQty = 0;
-                            for (var tgi = 0; tgi < data.length; tgi++) { if (data[tgi].bundleId === bCtx2.bundleId) totalQty += data[tgi].quantity }
-                            if (totalQty > 0) {
-                                var unitVal = np / totalQty;
-                                for (var tgi2 = 0; tgi2 < data.length; tgi2++) { if (data[tgi2].bundleId === bCtx2.bundleId) data[tgi2].unitPrice = Math.round(unitVal * data[tgi2].quantity * 100) / 100 / data[tgi2].quantity || 0 }
+                var done = false, commit = function () {
+                    if (done) return; done = true; var raw = inp.value.trim().replace(/[¥￥,，\s]/g, ''), np = parseFloat(raw); if (!isNaN(np) && np >= 0) {
+                        if (isBundle) {
+                            var bCtx2 = getBundleCtx(idx);
+                            if (bCtx2) {
+                                var totalQty = 0;
+                                for (var tgi = 0; tgi < data.length; tgi++) { if (data[tgi].bundleId === bCtx2.bundleId) totalQty += data[tgi].quantity }
+                                if (totalQty > 0) {
+                                    var unitVal = np / totalQty;
+                                    for (var tgi2 = 0; tgi2 < data.length; tgi2++) { if (data[tgi2].bundleId === bCtx2.bundleId) data[tgi2].unitPrice = Math.round(unitVal * data[tgi2].quantity * 100) / 100 / data[tgi2].quantity || 0 }
+                                }
+                                saveD(); render();
                             }
-                            saveD(); render();
+                        } else {
+                            data[idx].unitPrice = Math.round(np * 100) / 100; saveD(); render();
                         }
-                    } else {
-                        data[idx].unitPrice = Math.round(np * 100) / 100; saveD(); render();
-                    }
-                } tipEditing = false; tip.style.display = 'none'; tipTarget = null };
+                    } tipEditing = false; tip.style.display = 'none'; tipTarget = null
+                };
                 inp.addEventListener('blur', commit); inp.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); commit() } if (ev.key === 'Escape') { tipEditing = false; tip.style.display = 'none'; tipTarget = null } })
             });
 

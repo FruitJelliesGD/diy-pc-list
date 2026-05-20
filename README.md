@@ -18,6 +18,9 @@
 | **分享** | 生成精美分享图片 + 通过 URL 哈希分享配置链接 |
 | **打印** | 专用打印样式，隐藏操作按钮，干净输出 |
 | **快捷键** | 支持 `Ctrl+N`、`Ctrl+E`、`Ctrl+I`、`?` 等快捷键，弹窗帮助 |
+| **无障碍访问** | 弹窗支持 ARIA 属性、焦点管理、Tab 键循环、Esc 关闭 |
+| **安全策略** | 页面添加 CSP 内容安全策略头 |
+| **代码质量** | 全面使用 `let`/`const` 替代 `var`，现代化 JavaScript |
 | **数据持久化** | 所有数据自动保存至 `localStorage`，支持旧版数据迁移 |
 | **响应式** | 适配桌面与移动端，触摸友好 |
 
@@ -79,16 +82,22 @@ xdg-open index.html
 - **导入** — 点击「📥 导入」，支持从剪贴板粘贴 Markdown 表格或选择 CSV 文件
 - **导出** — CSV 格式，含捆绑组列信息
 - **复制** — 一键复制为 Markdown 表格（含捆绑信息）
-- **分享** — 生成分享图片（Canvas 绘制，适配主题色）或复制 URL 链接（Base64 编码于 URL 哈希中）
+- **分享** — 点击「🖼️ 分享」弹出分享弹窗，可选择「生成分享图片」（Canvas 绘制，适配主题色）或「复制分享链接」（Base64 编码于 URL 哈希中）
 
 ## 🏗️ 技术细节
 
 - **纯原生** — HTML + CSS + Vanilla JavaScript，无框架、无构建工具
 - **CSS 变量** — 通过 `:root` + `@media (prefers-color-scheme)` + `data-theme` 属性实现三级主题切换
 - **Canvas API** — 分享图片通过 Canvas 绘制，支持深色/浅色两种样式，列宽动态计算
+- **CSP 安全策略** — 页面添加 `Content-Security-Policy` 头增强安全性
+- **`let`/`const`** — 全部 JavaScript 变量使用块级作用域声明，替代旧的 `var`
 - **structuredClone** — 使用现代 API 深拷贝对象
 - **本地存储** — 数据存储键 `pc_config_v11`，支持旧版单配置数据自动迁移
 - **URL 哈希** — 配置数据 Base64 编码后存入 URL `#` 部分，支持分享链接
+- **无障碍访问** — 所有弹窗包含 `role="dialog"`、`aria-modal`、`aria-labelledby` 等 ARIA 属性
+- **焦点管理** — 弹窗打开/关闭自动保存和恢复焦点，Tab 键循环聚焦
+- **自定义确认弹窗** — 替代原生 `confirm()`，风格统一且支持键盘导航
+- **CSS 模块化** — 弹窗使用统一的 `.modal-section`、`.modal-actions-col` 等可复用类名
 
 ### 默认配件模板
 

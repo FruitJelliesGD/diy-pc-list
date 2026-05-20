@@ -1,4 +1,6 @@
-# 🖥️ PC 配置单
+# 🖥️ DIY PC 配置单
+
+> 🔗 **在线访问**: [https://FruitJelliesGD.github.io/diy-pc-list/](https://FruitJelliesGD.github.io/diy-pc-list/)
 
 一个轻量、零依赖的 PC 硬件配置清单管理工具。单个 HTML 文件，浏览器直接打开即可使用。
 
@@ -26,7 +28,8 @@
 
 ## 🚀 使用方式
 
-直接在浏览器中打开 `index.html` 即可，无需安装任何依赖。
+- 🌐 **在线访问**: [https://FruitJelliesGD.github.io/diy-pc-list/](https://FruitJelliesGD.github.io/diy-pc-list/)
+- 💻 **本地使用**: 直接打开 `index.html` 即可，无需安装任何依赖
 
 ```bash
 # Windows
